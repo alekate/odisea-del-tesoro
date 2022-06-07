@@ -1,5 +1,14 @@
-import { Preloads } from "../scenes/preloads.js";
-import { MainMenu } from "../scenes/mainmenu.js";
+import { preloads } from "../scenes/preloads.js";
+import { mainmenu } from "../scenes/mainmenu.js";
+import { combate } from "../scenes/combate.js";
+import { mapa } from "../scenes/mapa.js";
+import { descanso } from "../scenes/descanso.js";
+import { unidades } from "../scenes/unidades.js";
+import { creditos } from "../scenes/creditos.js";
+import { winGuardian } from "../scenes/winGuardian.js";
+import { winHumanos } from "../scenes/winHumanos.js";
+import { pausa } from "../scenes/pausa.js";
+import { combateJefe } from "../scenes/pausaJefe.js";
 
 var config = {
   type: Phaser.AUTO,
@@ -26,7 +35,7 @@ var config = {
   },
   // Listado de todas las escenas del juego, en orden
   // La primera escena es con la cual empieza el juego
-  scene: [Preloads, MainMenu],
+  scene: [preloads, mainmenu, unidades, mapa, combate, descanso, combateJefe, pausa, creditos, winGuardian, winHumanos],
 };
 
 var game = new Phaser.Game(config);
