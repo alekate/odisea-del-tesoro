@@ -8,7 +8,7 @@ import { creditos } from "../scenes/creditos.js";
 import { winGuardian } from "../scenes/winGuardian.js";
 import { winHumanos } from "../scenes/winHumanos.js";
 import { pausa } from "../scenes/pausa.js";
-import { combateJefe } from "../scenes/pausaJefe.js";
+import { combateJefe } from "../scenes/combateJefe.js";
 
 var config = {
   type: Phaser.AUTO,

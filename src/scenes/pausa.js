@@ -15,10 +15,20 @@ export class pausa extends Phaser.Scene {
         const boton = new Button(
             this.cameras.main.centerX,
             this.cameras.main.centerY + this.cameras.main.centerY / 9,
-            "Volver",
+            "Continuar",
             this,
             () => {
-              this.scene.start("pausa");
+              this.scene.start("mapa");
+            }
+      
+          );
+          const boton1 = new Button(
+            this.cameras.main.centerX,
+            this.cameras.main.centerY + this.cameras.main.centerY / 3,
+            "Salir",
+            this,
+            () => {
+              this.scene.start("mainmenu");
             }
       
           );

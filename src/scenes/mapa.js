@@ -1,5 +1,8 @@
 import Button from "../js/button.js";
 
+
+var sala;
+
 export class mapa extends Phaser.Scene {
     constructor() {
       super("mapa");
@@ -26,14 +29,7 @@ export class mapa extends Phaser.Scene {
               this.scene.start("pausa");
             });
 
-    }
-
-    update(){
-
-        if(sala == ""){
-            sala = 1;
-        } 
-
+            
         const boton1 = new Button(
             this.cameras.main.centerX,
             this.cameras.main.centerY + this.cameras.main.centerY / 3,
@@ -58,7 +54,6 @@ export class mapa extends Phaser.Scene {
                 }
               this.scene.start("combate");
             });
-
     }
     
 }

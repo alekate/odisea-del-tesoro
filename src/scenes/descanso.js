@@ -15,9 +15,9 @@ export class descanso extends Phaser.Scene {
         })
 
         const boton = new Button(
-            this.cameras.main.centerX,
-            this.cameras.main.centerY + this.cameras.main.centerY / 3,
-            "Ganar",
+            this.cameras.main.centerX + this.cameras.main.centerX / 2,
+            this.cameras.main.centerY,
+            "+1 ataque",
             this,
             () => {
               this.scene.start("mapa", { sala: sala });
@@ -26,12 +26,23 @@ export class descanso extends Phaser.Scene {
           );
 
           const boton1 = new Button(
-            this.cameras.main.centerX,
-            this.cameras.main.centerY + this.cameras.main.centerY / 9,
-            "Perder",
+            this.cameras.main.centerX ,
+            this.cameras.main.centerY,
+            "+1 vidaMax",
             this,
             () => {
-              this.scene.start("winGuardian");
+              this.scene.start("mapa", { sala: sala });
+            }
+      
+          );
+
+          const boton2 = new Button(
+            this.cameras.main.centerX - this.cameras.main.centerX / 2,
+            this.cameras.main.centerY,
+            "+1 vida act",
+            this,
+            () => {
+              this.scene.start("mapa", { sala: sala });
             }
       
           );

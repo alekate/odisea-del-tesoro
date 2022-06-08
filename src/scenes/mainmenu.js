@@ -7,6 +7,8 @@ export class mainmenu extends Phaser.Scene {
 
   create() {
 
+    var sala = 1;
+
     this.add.image(
       this.cameras.main.centerX,
       this.cameras.main.centerY / 1.5,
@@ -19,7 +21,7 @@ export class mainmenu extends Phaser.Scene {
       "Jugar",
       this,
       () => {
-        this.scene.start("mapa");
+        this.scene.start("mapa", { sala: sala});
       }
 
     );
