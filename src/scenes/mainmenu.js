@@ -9,26 +9,22 @@ export class mainmenu extends Phaser.Scene {
 
     var sala = 1;
 
-    this.add.image(
-      this.cameras.main.centerX,
-      this.cameras.main.centerY / 1.5,
-      "phaser_logo"
-    );
+    this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'fondoMenu');
 
     const boton = new Button(
       this.cameras.main.centerX,
-      this.cameras.main.centerY + this.cameras.main.centerY / 9,
+      this.cameras.main.centerY + this.cameras.main.centerY / 4,
       "Jugar",
       this,
       () => {
-        this.scene.start("mapa", { sala: sala});
+        this.scene.start("selector", { sala: sala});
       }
 
     );
 
     const boton1 = new Button(
       this.cameras.main.centerX,
-      this.cameras.main.centerY + this.cameras.main.centerY / 3,
+      this.cameras.main.centerY + this.cameras.main.centerY / 2,
       "Créditos",
       this,
       () => {
