@@ -3,7 +3,6 @@ import { mainmenu } from "../scenes/mainmenu.js";
 import { combate } from "../scenes/combate.js";
 import { mapa } from "../scenes/mapa.js";
 import { descanso } from "../scenes/descanso.js";
-import { unidades } from "../scenes/unidades.js";
 import { creditos } from "../scenes/creditos.js";
 import { winGuardian } from "../scenes/winGuardian.js";
 import { winHumanos } from "../scenes/winHumanos.js";
@@ -35,7 +34,7 @@ var config = {
   },
   // Listado de todas las escenas del juego, en orden
   // La primera escena es con la cual empieza el juego
-  scene: [preloads, mainmenu, unidades, mapa, combate, descanso, combateJefe, pausa, creditos, winGuardian, winHumanos],
+  scene: [preloads, mainmenu, mapa, combate, descanso, combateJefe, pausa, creditos, winGuardian, winHumanos],
 };
 
 var game = new Phaser.Game(config);
