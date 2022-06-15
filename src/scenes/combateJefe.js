@@ -1,4 +1,5 @@
 import Button from "../js/button.js";
+//import unidades from "../js/unidades.js";
 
 export class combateJefe extends Phaser.Scene {
     constructor() {
@@ -14,7 +15,7 @@ create() {
     
   const boton = new Button(
     this.cameras.main.centerX,
-    this.cameras.main.centerY + this.cameras.main.centerY / 3,
+    this.cameras.main.centerY + this.cameras.main.centerY / 9,
     "Ganar",
     this,
     () => {

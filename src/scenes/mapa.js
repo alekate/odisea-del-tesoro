@@ -39,7 +39,7 @@ export class mapa extends Phaser.Scene {
                 switch (sala) {
                     
                    case 1:{
-                    this.scene.start("combate");
+                    this.scene.start("selector");
                     break;
                    }
                    case 2:{
@@ -52,7 +52,6 @@ export class mapa extends Phaser.Scene {
                    }
 
                 }
-              this.scene.start("combate");
             });
     }
     

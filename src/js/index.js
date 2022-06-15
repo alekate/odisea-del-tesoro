@@ -8,11 +8,13 @@ import { winGuardian } from "../scenes/winGuardian.js";
 import { winHumanos } from "../scenes/winHumanos.js";
 import { pausa } from "../scenes/pausa.js";
 import { combateJefe } from "../scenes/combateJefe.js";
+import { selector } from "../scenes/selector.js";
 
 var config = {
   type: Phaser.AUTO,
-  width: 800,
-  height: 600,
+  width: 1280,
+  height: 720,
+  pixelArt: true,
   scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
@@ -32,9 +34,9 @@ var config = {
       debug: false,
     },
   },
-  // Listado de todas las escenas del juego, en orden
-  // La primera escena es con la cual empieza el juego
-  scene: [preloads, mainmenu, mapa, combate, descanso, combateJefe, pausa, creditos, winGuardian, winHumanos],
+
+  scene: [preloads, mainmenu, selector, mapa, combate, descanso, combateJefe, pausa, creditos, winGuardian, winHumanos],
+
 };
 
 var game = new Phaser.Game(config);
