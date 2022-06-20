@@ -1,14 +1,31 @@
 import Button from "../js/button.js";
-//import unidades from "../js/unidades.js";
+
+var sala;
+var hum1;
+var hum2;
+var hum3;
+var criaturas;
+var criat1;
+var criat2;
+var criat3;
 
 export class combate extends Phaser.Scene {
     constructor() {
       super("combate");
     }
 
-    create() {
+    init(data) {
+      sala = data.sala;
+      hum1 = data.hum1;
+      hum2 = data.hum2;
+      hum3 = data.hum3;
+      criaturas = data.criaturas;
+      criat1 = data.criat1;
+      criat2 = data.criat2;
+      criat3 = data.criat3;
+  }
 
-        var sala = 2;
+    create() {
 
         const text = this.add.text(0, 0, "Sala de Combate", {
             fontSize: "32px",
@@ -21,7 +38,7 @@ export class combate extends Phaser.Scene {
             "Ganar",
             this,
             () => {
-              this.scene.start("mapa", { sala: sala });
+              this.scene.start("mapa", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
             }
       
           );

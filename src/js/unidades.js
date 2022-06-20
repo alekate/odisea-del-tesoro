@@ -3,7 +3,8 @@ class Arquero {
     constructor (){
         this.ataque = 5;
         this.vida = 10;
-        this.nombre = arquero;
+        this.vidaMax = 10;
+        this.nombre = Arquero;
     }
 }
 
@@ -12,6 +13,7 @@ class Caballero {
     constructor (){
         this.ataque = 10;
         this.vida = 10;
+        this.vidaMax = 10;
         this.nombre = caballero;
     }
 }
@@ -21,6 +23,7 @@ class Mago {
     constructor (){
         this.ataque = 15;
         this.vida = 20;
+        this.vidaMax = 10;
         this.nombre = mago;
     }
 }
@@ -59,3 +62,5 @@ class Jefe {
         this.vida = 30;
     }
 }
+
+export default Arquero;

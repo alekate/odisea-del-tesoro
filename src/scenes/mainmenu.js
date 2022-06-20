@@ -16,7 +16,7 @@ export class mainmenu extends Phaser.Scene {
       "Jugar",
       this,
       () => {
-        this.scene.start("selector");
+        this.scene.start("selectorH");
       }
 
     );

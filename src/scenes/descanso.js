@@ -1,13 +1,25 @@
 import Button from "../js/button.js";
 
+var sala;
+var hum1;
+var hum2;
+var hum3;
+var criaturas;
+
 export class descanso extends Phaser.Scene {
     constructor() {
       super("descanso");
     }
 
+    init(data) {
+      sala = data.sala;
+      hum1 = data.hum1;
+      hum2 = data.hum2;
+      hum3 = data.hum3;
+      criaturas = data.criaturas;
+  }
+  
     create() {
-
-        var sala = 3;
 
         const text = this.add.text(0, 0, "Sala de descanso", {
             fontSize: "32px",
@@ -20,7 +32,8 @@ export class descanso extends Phaser.Scene {
             "+1 ataque",
             this,
             () => {
-              this.scene.start("mapa", { sala: sala });
+              sala++;
+              this.scene.start("mapa", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
             }
       
           );
@@ -31,7 +44,8 @@ export class descanso extends Phaser.Scene {
             "+1 vidaMax",
             this,
             () => {
-              this.scene.start("mapa", { sala: sala });
+              sala++;
+              this.scene.start("mapa", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
             }
       
           );
@@ -42,7 +56,8 @@ export class descanso extends Phaser.Scene {
             "+1 vida act",
             this,
             () => {
-              this.scene.start("mapa", { sala: sala });
+              sala++;
+              this.scene.start("mapa", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
             }
       
           );

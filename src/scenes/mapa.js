@@ -2,6 +2,10 @@ import Button from "../js/button.js";
 
 
 var sala;
+var hum1;
+var hum2;
+var hum3;
+var criaturas;
 
 export class mapa extends Phaser.Scene {
     constructor() {
@@ -10,6 +14,10 @@ export class mapa extends Phaser.Scene {
 
     init(data) {
         sala = data.sala;
+        hum1 = data.hum1;
+        hum2 = data.hum2;
+        hum3 = data.hum3;
+        criaturas = data.criaturas;
     }
 
     create() {
@@ -21,8 +29,7 @@ export class mapa extends Phaser.Scene {
         })
 
         const boton = new Button(
-            this.cameras.main.centerX,
-            this.cameras.main.centerY + this.cameras.main.centerY / 9,
+            1200,50,
             "Pausa",
             this,
             () => {
@@ -39,15 +46,23 @@ export class mapa extends Phaser.Scene {
                 switch (sala) {
                     
                    case 1:{
-                    this.scene.start("selector");
+                    this.scene.start("selectorC", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
                     break;
                    }
                    case 2:{
-                    this.scene.start("descanso");
+                    this.scene.start("descanso", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
                     break;
                    }
                    case 3:{
-                    this.scene.start("combateJefe");
+                    this.scene.start("selectorC", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
+                    break;
+                   }
+                   case 4:{
+                    this.scene.start("descanso", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
+                    break;
+                   }
+                   case 5:{
+                    this.scene.start("combateJefe", { hum1: hum1, hum2: hum2, hum3: hum3});
                     break;
                    }
 

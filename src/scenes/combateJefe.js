@@ -1,10 +1,19 @@
 import Button from "../js/button.js";
-//import unidades from "../js/unidades.js";
+
+var hum1;
+var hum2;
+var hum3;
 
 export class combateJefe extends Phaser.Scene {
     constructor() {
       super("combateJefe");
     }
+
+init(data) {
+      hum1 = data.hum1;
+      hum2 = data.hum2;
+      hum3 = data.hum3;
+  }
 
 create() {
     

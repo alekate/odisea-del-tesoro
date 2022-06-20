@@ -8,7 +8,8 @@ import { winGuardian } from "../scenes/winGuardian.js";
 import { winHumanos } from "../scenes/winHumanos.js";
 import { pausa } from "../scenes/pausa.js";
 import { combateJefe } from "../scenes/combateJefe.js";
-import { selector } from "../scenes/selector.js";
+import { selectorH } from "../scenes/selectorHumanos.js";
+import { selectorC } from "../scenes/selectorCriaturas.js";
 
 var config = {
   type: Phaser.AUTO,
@@ -35,7 +36,7 @@ var config = {
     },
   },
 
-  scene: [preloads, mainmenu, selector, mapa, combate, descanso, combateJefe, pausa, creditos, winGuardian, winHumanos],
+  scene: [preloads, mainmenu, selectorH, mapa, selectorC, combate, descanso, combateJefe, pausa, creditos, winGuardian, winHumanos],
 
 };
 
