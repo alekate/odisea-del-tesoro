@@ -14,7 +14,7 @@ export class combate extends Phaser.Scene {
       super("combate");
     }
 
-    init(data) {
+init(data) {
       sala = data.sala;
       hum1 = data.hum1;
       hum2 = data.hum2;
@@ -23,15 +23,15 @@ export class combate extends Phaser.Scene {
       criat1 = data.criat1;
       criat2 = data.criat2;
       criat3 = data.criat3;
-      console.log(data);
+      //console.log(data);
   }
 
-    create() {
+create() {
 
         const text = this.add.text(0, 0, "Sala de Combate", {
             fontSize: "32px",
             fill: "#FFFFFF",
-        })
+        });
 
         const boton = new Button(
             900,1000,
@@ -39,25 +39,21 @@ export class combate extends Phaser.Scene {
             this,
             () => {
               this.scene.start("mapa", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
-            }
-      
-          );
-
-          const boton1 = new Button(
-            this.cameras.main.centerX,
-            this.cameras.main.centerY + this.cameras.main.centerY / 9,
-            "perder",
-            this,
-            () => {
-              this.scene.start("winGuardian");
-            }
-      
-          );
+            });
     }
 
-    update(){
+update(){
+
+  if (hum1.vida == 0 && hum3.vida == 0 && hum2.vida == 0) {
+    this.scene.start("winGuardian")
+  }
+ 
+  if (criat1.vida == 0 && criat2.vida == 0 && criat3.vida == 0) {
+    this.scene.start("mapa", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas })
+  }
 
 
-    }
+
 }
 
+}

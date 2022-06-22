@@ -1,9 +1,9 @@
 class Arquero {
    
     constructor (){
-        this.ataque = 5;
-        this.vida = 10;
-        this.vidaMax = 10;
+        this.ataque = 3;
+        this.vida = 2;
+        this.vidaMax = 2;
         this.nombre = "arquero";
     }
 }

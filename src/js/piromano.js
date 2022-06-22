@@ -1,9 +1,9 @@
 class Piromano {
 
     constructor (){
-        this.ataque = 15;
-        this.vida = 20;
-        this.vidaMax = 10;
+        this.ataque = 2;
+        this.vida = 3;
+        this.vidaMax = 3;
         this.nombre = "piromano";
     }
 }

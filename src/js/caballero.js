@@ -1,9 +1,9 @@
 class Caballero {
 
     constructor (){
-        this.ataque = 10;
-        this.vida = 10;
-        this.vidaMax = 10;
+        this.ataque = 1;
+        this.vida = 4;
+        this.vidaMax = 4;
         this.nombre = "caballero";
     }
 }

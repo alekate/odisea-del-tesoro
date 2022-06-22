@@ -32,6 +32,9 @@ export class descanso extends Phaser.Scene {
             "+1 ataque",
             this,
             () => {
+              hum1.ataque += 1;
+              hum2.ataque += 1;
+              hum3.ataque += 1;
               sala++;
               this.scene.start("mapa", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
             }
@@ -44,6 +47,9 @@ export class descanso extends Phaser.Scene {
             "+1 vidaMax",
             this,
             () => {
+              hum1.vidaMax += 1; 
+              hum2.vidaMax += 1;
+              hum3.vidaMax += 1;
               sala++;
               this.scene.start("mapa", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
             }
@@ -56,6 +62,15 @@ export class descanso extends Phaser.Scene {
             "+1 vida act",
             this,
             () => {
+              if (hum1.vida < hum1.vidaMax){
+                hum1.vida += 1;
+              }
+              if (hum2.vida < hum2.vidaMax){
+                hum2.vida += 1;
+               }
+              if (hum3.vida < hum3.vidaMax) {
+                hum3.vida += 1;
+              }
               sala++;
               this.scene.start("mapa", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
             }
