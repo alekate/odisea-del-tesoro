@@ -28,7 +28,7 @@ export class descanso extends Phaser.Scene {
 
         const boton = new Button(
             this.cameras.main.centerX + this.cameras.main.centerX / 2,
-            this.cameras.main.centerY,
+            900,
             "+1 ataque",
             this,
             () => {
@@ -40,7 +40,7 @@ export class descanso extends Phaser.Scene {
 
           const boton1 = new Button(
             this.cameras.main.centerX ,
-            this.cameras.main.centerY,
+            900,
             "+1 vidaMax",
             this,
             () => {
@@ -52,7 +52,7 @@ export class descanso extends Phaser.Scene {
 
           const boton2 = new Button(
             this.cameras.main.centerX - this.cameras.main.centerX / 2,
-            this.cameras.main.centerY,
+            900,
             "+1 vida act",
             this,
             () => {

@@ -23,6 +23,7 @@ export class combate extends Phaser.Scene {
       criat1 = data.criat1;
       criat2 = data.criat2;
       criat3 = data.criat3;
+      console.log(data);
   }
 
     create() {
@@ -33,9 +34,8 @@ export class combate extends Phaser.Scene {
         })
 
         const boton = new Button(
-            this.cameras.main.centerX,
-            this.cameras.main.centerY + this.cameras.main.centerY / 3,
-            "Ganar",
+            900,1000,
+            "atacar",
             this,
             () => {
               this.scene.start("mapa", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
@@ -53,6 +53,11 @@ export class combate extends Phaser.Scene {
             }
       
           );
+    }
+
+    update(){
+
+
     }
 }
 
