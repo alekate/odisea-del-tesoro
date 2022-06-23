@@ -1,6 +1,6 @@
 import Button from "../js/button.js";
 import Esqueletos from "../js/esqueletos.js";
-import Hechizero from "../js/hechizero.js";
+import Mago from "../js/mago.js";
 import Polilla from "../js/polilla.js"
 
 var num1 = 1;
@@ -142,7 +142,7 @@ create() {
         
           for (let i = 0; i < num3; i++) {
           
-            criats.push(new Hechizero)
+            criats.push(new Mago)
           }
         
           for (let i = 0; i < num2; i++) {
@@ -151,7 +151,8 @@ create() {
           }
           sala++
           criaturas -= 3;
-          this.scene.start("combate", { criat1: criats[0], criat: criats[1], criat3: criats[2], sala: sala, criaturas: criaturas, hum1: hum1, hum2: hum2, hum3: hum3 });
+          this.scene.start("combate", { criat1: criats[0], criat2: criats[1], criat3: criats[2],
+             sala: sala, criaturas: criaturas, hum1: hum1, hum2: hum2, hum3: hum3 });
             })
             }
     

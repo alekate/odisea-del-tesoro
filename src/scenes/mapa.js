@@ -5,7 +5,13 @@ var hum1;
 var hum2;
 var hum3;
 var criaturas;
-var text1;
+var atk1;
+var atk2;
+var atk3;
+var vida1;
+var vida2;
+var vida3;
+var cantCriaturas;
 
 export class mapa extends Phaser.Scene {
     constructor() {
@@ -30,7 +36,34 @@ export class mapa extends Phaser.Scene {
             fill: "#FFFFFF",
         })
 
-        text1 = this.add.text(200, 200, "", {
+        atk1 = this.add.text(220, 200, "atk: " + hum1.ataque, {
+            fontSize: "32px",
+            fill: "#FFFFFF",
+        })
+        vida1 = this.add.text(220, 250, "vida: " + hum1.vida + "/" + hum1.vidaMax, {
+            fontSize: "32px",
+            fill: "#FFFFFF",
+        })
+
+        atk2 = this.add.text(220, 500, "atk: " + hum2.ataque, {
+            fontSize: "32px",
+            fill: "#FFFFFF",
+        })
+        vida2 = this.add.text(220, 550, "vida: " + hum2.vida + "/" + hum2.vidaMax, {
+            fontSize: "32px",
+            fill: "#FFFFFF",
+        })
+
+        atk3 = this.add.text(220, 800, "atk: " + hum3.ataque, {
+            fontSize: "32px",
+            fill: "#FFFFFF",
+        })
+        vida3 = this.add.text(220, 850, "vida: " + hum3.vida + "/" + hum3.vidaMax, {
+            fontSize: "32px",
+            fill: "#FFFFFF",
+        })
+
+        cantCriaturas = this.add.text(1550, 550, "criaturas: " + criaturas, {
             fontSize: "32px",
             fill: "#FFFFFF",
         })
@@ -45,8 +78,7 @@ export class mapa extends Phaser.Scene {
 
             
         const boton1 = new Button(
-            1700,
-            1000,
+            1700,1000,
             "Siguiente sala",
             this,
             () => {
@@ -77,12 +109,4 @@ export class mapa extends Phaser.Scene {
             });
     }
 
-    update(){
-
-        //var atk1 = text1.setText("atk: " + hum1.ataque);
-        //var atk2 = this.hum2.ataque;
-        //var atk3 = this.hum3.ataque;
-
-    }
-    
 }

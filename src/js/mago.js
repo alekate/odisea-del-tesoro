@@ -1,10 +1,10 @@
-class Hechizero {
+class Mago {
 
     constructor (){
         this.ataque = 3;
         this.vida = 5;
-        this.nombre = "hechizero";
+        this.nombre = "mago";
     }
 }
 
-export default Hechizero;
+export default Mago;

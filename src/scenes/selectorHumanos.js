@@ -12,6 +12,7 @@ var text1;
 var text2;
 var text3;
 
+
 export class selectorH extends Phaser.Scene {
     constructor() {
       super("selectorH");
@@ -38,9 +39,12 @@ create() {
     fill: "#FFFFFF",
   })
 
-  this.add.image(500, 500, 'arquero');
-  this.add.image(900, 500, 'caballero');
-  this.add.image(1300, 500, 'piromano');
+  var imag1 = this.add.image(500, 600, 'arquero');
+  var imag2 = this.add.image(900, 600, 'caballero');
+  var imag3 = this.add.image(1300, 600, 'piromano');
+  imag1.setScale(3);
+  imag2.setScale(3);
+  imag3.setScale(3);
 
   const boton5 = new Button(
     1250,400,
@@ -134,23 +138,18 @@ create() {
     hums.push(new Arquero)
   }
 
-  for (let i = 0; i < num3; i++) {
-  
-    hums.push(new Piromano)
-  }
-
   for (let i = 0; i < num2; i++) {
   
     hums.push(new Caballero)
+  }
+
+  for (let i = 0; i < num3; i++) {
+  
+    hums.push(new Piromano)
   }
   
       this.scene.start("mapa", { hum1: hums[0], hum2: hums[1], hum3: hums[2], sala: sala, criaturas: criaturas });
     }
   )
     }
-
-update () {
-
-}
-
-}
+  }
