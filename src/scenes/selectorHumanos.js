@@ -11,6 +11,10 @@ var criaturas = 15;
 var text1;
 var text2;
 var text3;
+var hum1;
+var hum2;
+var hum3;
+var hums = [];
 
 
 export class selectorH extends Phaser.Scene {
@@ -24,42 +28,71 @@ create() {
     fill: "#FFFFFF",
   })
 
-  text1 = this.add.text(500, 390, "1", {
+  ////////////////////////////////////////// indicadores de cantidad
+  text1 = this.add.text(500, 290, "1", {
+    fontSize: "32px",
+    fill: "#FFFFFF",
+  })
+  text2 = this.add.text(890, 290, "1", {
+    fontSize: "32px",
+    fill: "#FFFFFF",
+  })
+  text3 = this.add.text(1290, 290, "1", {
     fontSize: "32px",
     fill: "#FFFFFF",
   })
 
-  text2 = this.add.text(890, 390, "1", {
-    fontSize: "32px",
-    fill: "#FFFFFF",
-  })
 
-  text3 = this.add.text(1290, 390, "1", {
-    fontSize: "32px",
-    fill: "#FFFFFF",
-  })
+  //////////////////////////////////////////////// estadisticas
+var text4 = this.add.text(450, 690, "vida: 2", {
+  fontSize: "37px",
+  fill: "#FFFFFF",
+})
+var text5 = this.add.text(450, 740, "daño: 3", {
+  fontSize: "37px",
+  fill: "#FFFFFF",
+})
+var text6 = this.add.text(840, 690, "vida: 4", {
+  fontSize: "37px",
+  fill: "#FFFFFF",
+})
+var text7 = this.add.text(840, 740, "daño: 1", {
+  fontSize: "37px",
+  fill: "#FFFFFF",
+})
+var text8 = this.add.text(1250, 690, "vida: 3", {
+  fontSize: "37px",
+  fill: "#FFFFFF",
+})
+var text9 = this.add.text(1250, 740, "daño: 2", {
+  fontSize: "37px",
+  fill: "#FFFFFF",
+})
 
-  var imag1 = this.add.image(500, 600, 'arquero');
-  var imag2 = this.add.image(900, 600, 'caballero');
-  var imag3 = this.add.image(1300, 600, 'piromano');
-  imag1.setScale(3);
-  imag2.setScale(3);
-  imag3.setScale(3);
 
+  ///////////////////////////////////////////////////// sprites
+  var imag1 = this.add.image(500, 500, 'arquero');
+  var imag2 = this.add.image(900, 500, 'caballero');
+  var imag3 = this.add.image(1300, 500, 'piromano');
+  imag1.setScale(4);
+  imag2.setScale(4);
+  imag3.setScale(4);
+
+
+/////////////////////////////////////////////////////// botones
   const boton5 = new Button(
-    1250,400,
+    1250,300,
     "-",
     this,
     () => {
-      if (num3 =! 0){
+      if (num3 > 0){
         num3--
         text3.text = num3;
        }
       }
   );
-  
   const boton6 = new Button(
-    1360,400,
+    1360,300,
     "+",
     this,
     () => {
@@ -70,10 +103,9 @@ create() {
       }    
   );
   
- 
   
   const boton4 = new Button(
-    960,400,
+    960,300,
     "+",
     this,
     () => {
@@ -83,13 +115,12 @@ create() {
        }
       }
   );
-  
   const boton3 = new Button(
-    850,400,
+    850,300,
     "-",
     this,
     () => {
-      if (num2 =! 0){
+      if (num2 > 0){
         num2--
         text2.text = num2;
        }
@@ -97,9 +128,8 @@ create() {
   );
   
  
-  
   const boton2 = new Button(
-    560,400,
+    560,300,
     "+",
     this,
     () => {
@@ -109,13 +139,12 @@ create() {
      }
     }
   );
-  
   const boton1 = new Button(
-    450,400,
+    450,300,
     "-",
     this,
     () => {
-    if (num1 =! 0){
+    if (num1 > 0){
       num1--
       text1.text = num1;
      }
@@ -123,11 +152,7 @@ create() {
   );
   
 
-  var hum1;
-  var hum2;
-  var hum3;
-  var hums = []
-
+  ///////////////////////////////////////////// matriz de personajes
   const botonCont = new Button(
     900,900,
     "Continuar",
