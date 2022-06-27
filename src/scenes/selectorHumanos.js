@@ -3,18 +3,19 @@ import Arquero from "../js/arquero.js";
 import Caballero from "../js/caballero.js";
 import Piromano from "../js/piromano.js";
 
-var num1 = 1;
-var num2 = 1;
-var num3 = 1;
+
 var sala = 1;
 var criaturas = 15;
 var text1;
 var text2;
 var text3;
+var text9;
+var tcant;
 var hum1;
 var hum2;
 var hum3;
-var hums = [];
+
+
 
 
 export class selectorH extends Phaser.Scene {
@@ -29,15 +30,29 @@ create() {
   })
 
   ////////////////////////////////////////// indicadores de cantidad
-  text1 = this.add.text(500, 290, "1", {
+
+  var num1 = 0;
+  var num2 = 0;
+  var num3 = 0;
+  var cant = 0;
+  
+  text1 = this.add.text(500, 290, "0", {
     fontSize: "32px",
     fill: "#FFFFFF",
   })
-  text2 = this.add.text(890, 290, "1", {
+  text2 = this.add.text(890, 290, "0", {
     fontSize: "32px",
     fill: "#FFFFFF",
   })
-  text3 = this.add.text(1290, 290, "1", {
+  text3 = this.add.text(1290, 290, "0", {
+    fontSize: "32px",
+    fill: "#FFFFFF",
+  })
+  text9 = this.add.text(1020, 150, "max: 3", {
+    fontSize: "32px",
+    fill: "#FFFFFF",
+  })
+  tcant = this.add.text(620, 150, "cantidad: " + cant, {
     fontSize: "32px",
     fill: "#FFFFFF",
   })
@@ -85,9 +100,12 @@ var text9 = this.add.text(1250, 740, "daño: 2", {
     "-",
     this,
     () => {
-      if (num3 > 0){
+      if (num3 > 0 && cant != 0){
         num3--
+        cant--
         text3.text = num3;
+        tcant.text = "cantidad: " + cant;
+        text
        }
       }
   );
@@ -96,9 +114,11 @@ var text9 = this.add.text(1250, 740, "daño: 2", {
     "+",
     this,
     () => {
-      if (num3 < 3){
+      if (num3 < 3 && cant < 3){
         num3++
+        cant++
         text3.text = num3;
+        tcant.text = "cantidad: " + cant;
        }
       }    
   );
@@ -109,9 +129,11 @@ var text9 = this.add.text(1250, 740, "daño: 2", {
     "+",
     this,
     () => {
-      if (num2 < 3){
+      if (num2 < 3 && cant < 3){
         num2++
+        cant++
         text2.text = num2;
+        tcant.text = "cantidad: " + cant;
        }
       }
   );
@@ -120,9 +142,11 @@ var text9 = this.add.text(1250, 740, "daño: 2", {
     "-",
     this,
     () => {
-      if (num2 > 0){
+      if (num2 > 0 && cant != 0){
         num2--
+        cant--
         text2.text = num2;
+        tcant.text = "cantidad: " + cant;
        }
       }
   );
@@ -133,9 +157,11 @@ var text9 = this.add.text(1250, 740, "daño: 2", {
     "+",
     this,
     () => {
-    if (num1 < 3){
+    if (num1 < 3 && cant < 3){
       num1++
+      cant++
       text1.text = num1;
+      tcant.text = "cantidad: " + cant;
      }
     }
   );
@@ -144,15 +170,19 @@ var text9 = this.add.text(1250, 740, "daño: 2", {
     "-",
     this,
     () => {
-    if (num1 > 0){
+    if (num1 > 0 && cant != 0){
       num1--
+      cant--
       text1.text = num1;
+      tcant.text = "cantidad: " + cant;
      }
     }
   );
   
 
   ///////////////////////////////////////////// matriz de personajes
+
+  var hums = [];
   const botonCont = new Button(
     900,900,
     "Continuar",
@@ -172,7 +202,6 @@ var text9 = this.add.text(1250, 740, "daño: 2", {
   
     hums.push(new Piromano)
   }
-  
       this.scene.start("mapa", { hum1: hums[0], hum2: hums[1], hum3: hums[2], sala: sala, criaturas: criaturas });
     }
   )

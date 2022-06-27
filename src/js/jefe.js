@@ -1,8 +1,9 @@
 class Jefe {
 
     constructor (){
-        this.ataque = 2;
-        this.vida = 30;
+        this.ataque = 3;
+        this.vida = 20;
+        this.vidaMax = 20;
     }
 }
 

@@ -79,7 +79,7 @@ vidaC3 = this.add.text(1670, 650, criat3.vida + "/" + criat3.vidaMax, {
   fill: "#FFFFFF",
 })
 
-Tturno = this.add.text(850, 250, "turno: " + turno, {
+Tturno = this.add.text(850, 150, "turno: " + turno, {
   fontSize: "32px",
   fill: "#FFFFFF",
 })
@@ -211,21 +211,22 @@ switch (criat3.nombre) {
     "atacar",
     this,
     () => {
-      ataque = "si";
+     ataque = "si"
     });
 }
 
 
 update(){
 
+///////////////////////////////////////////////// win condition
   if (hum1.vida <= 0 && hum3.vida <= 0 && hum2.vida <= 0) {
     this.scene.start("winGuardian")
   }
- 
   if (criat1.vida <= 0 && criat2.vida <= 0 && criat3.vida <= 0) {
     turno = 1;
     this.scene.start("mapa", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas })
   }
+
 
 ///////////////////////////////////////////////// eliminar unidades
 if (hum1.vida <= 0) {
@@ -253,7 +254,79 @@ if (criat3.vida <= 0) {
   vidaC3.text  = "";
 }
 
+////////////////////////////////////////////////// indicador de turno
+    
+switch (turno) {
+  case 1:
+    if (hum1.vida <= 0 && turno == 1) {
+      turno++;
+      Tturno.text = "turno: " +turno;
+    } else {
+      humImg1.setScale(4.5);  
+    }
+        
+    break;
+        
+  case 2:
+    if (hum2.vida <= 0 && turno == 2) {
+      turno++;
+      Tturno.text = "turno: " +turno;
+    } else {
+      humImg2.setScale(4.5);
+      humImg1.setScale(4);
+    }
+    
+    break;
 
+  case 3:
+    if (hum3.vida <= 0 && turno == 3) {
+      turno++;
+      Tturno.text = "turno: " +turno;
+    } else {
+      humImg3.setScale(4.5);
+      humImg2.setScale(4);
+    }
+   
+    break;
+
+  case 4:
+    if (criat1.vida <= 0 && turno == 4) {
+      turno++;
+      Tturno.text = "turno: " +turno;
+    } else {
+     criatImg1.setScale(4.5);
+     humImg3.setScale(4);
+    }
+    
+    break;
+
+  case 5:
+    if (criat2.vida <= 0 && turno == 5) {
+      turno++;
+      Tturno.text = "turno: " +turno;
+    } else {
+     criatImg2.setScale(4.5);
+     criatImg1.setScale(4);
+    }
+    
+    break;
+
+  case 6:
+    if (criat3.vida <= 0 && turno == 6) {
+      turno = 1;
+      Tturno.text = "turno: " +turno;
+    } else {
+      criatImg3.setScale(4.5);
+    criatImg2.setScale(4);
+    }
+    break;
+
+  default:
+    break;
+}
+  
+  
+    
 //////////////////////////////////////////////// humanos
   humImg1.on('pointerdown',()=> {
     if (ataque == "si") {
@@ -286,7 +359,9 @@ if (criat3.vida <= 0) {
           break;
       }}})
   humImg1.on('pointerover',()=> {
-    humImg1.setScale(4.1);
+    if (turno >= 4) {
+    humImg1.setScale(4.1); 
+  }
   })
   humImg1.on('pointerout', ()=> {
     humImg1.setScale(4);
@@ -323,7 +398,9 @@ if (criat3.vida <= 0) {
           break;
       }}})
   humImg2.on('pointerover',()=> {
-    humImg2.setScale(4.1);
+    if (turno >= 4) {
+      humImg2.setScale(4.1); 
+    }
   })
   humImg2.on('pointerout', ()=> {
     humImg2.setScale(4);
@@ -360,7 +437,9 @@ if (criat3.vida <= 0) {
           break;
       }}})
   humImg3.on('pointerover',()=> {
-    humImg3.setScale(4.2);
+    if (turno >= 4) {
+      humImg3.setScale(4.1); 
+    }
   })
   humImg3.on('pointerout', ()=> {
     humImg3.setScale(4);
@@ -428,7 +507,9 @@ if (criat3.vida <= 0) {
           break;
       }}})
   criatImg1.on('pointerover',()=> {
-    criatImg1.setScale(4.2);
+    if (turno < 4) {
+      criatImg1.setScale(4.1); 
+    }
   })
   criatImg1.on('pointerout', ()=> {
     criatImg1.setScale(4);
@@ -495,7 +576,9 @@ if (criat3.vida <= 0) {
           break;
       }}})
   criatImg2.on('pointerover',()=> {
-    criatImg2.setScale(4.2);
+    if (turno < 4) {
+      criatImg2.setScale(4.1); 
+    }
   })
   criatImg2.on('pointerout', ()=> {
     criatImg2.setScale(4);
@@ -562,7 +645,9 @@ if (criat3.vida <= 0) {
           break;
       }}})
   criatImg3.on('pointerover',()=> {
-    criatImg3.setScale(4.2);
+    if (turno < 4) {
+      criatImg3.setScale(4.1); 
+    }
   })
   criatImg3.on('pointerout', ()=> {
     criatImg3.setScale(4);

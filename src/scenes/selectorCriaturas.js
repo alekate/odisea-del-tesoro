@@ -3,9 +3,9 @@ import Esqueletos from "../js/esqueletos.js";
 import Mago from "../js/mago.js";
 import Polilla from "../js/polilla.js"
 
-var num1 = 1;
-var num2 = 1;
-var num3 = 1;
+var num1 = 0;
+var num2 = 0;
+var num3 = 0;
 var sala;
 var criaturas;
 var hum1;
@@ -21,6 +21,9 @@ var criats = []
 var imag1;
 var imag2;
 var imag3;
+var tcant;
+var tmax;
+var cant = 0;
 
 export class selectorC extends Phaser.Scene {
     constructor() {
@@ -43,15 +46,23 @@ create() {
 
 
 ////////////////////////////////////////////// indicadores de cantidad
-  text1 = this.add.text(500, 290, "1", {
+  text1 = this.add.text(500, 290, "0", {
     fontSize: "32px",
     fill: "#FFFFFF",
   })
-  text2 = this.add.text(890, 290, "1", {
+  text2 = this.add.text(890, 290, "0", {
     fontSize: "32px",
     fill: "#FFFFFF",
   })
-  text3 = this.add.text(1290, 290, "1", {
+  text3 = this.add.text(1290, 290, "0", {
+    fontSize: "32px",
+    fill: "#FFFFFF",
+  })
+  tmax = this.add.text(1020, 150, "max: 3", {
+    fontSize: "32px",
+    fill: "#FFFFFF",
+  })
+  tcant = this.add.text(620, 150, "cantidad: " + cant, {
     fontSize: "32px",
     fill: "#FFFFFF",
   })
@@ -93,7 +104,7 @@ var text9 = this.add.text(1250, 740, "daño: 3", {
   imag3.setScale(4);
 
 
-  }
+}
 
 update () {
 
@@ -103,9 +114,11 @@ update () {
         "-",
         this,
         () => {
-          if (num3 > 0){
+          if (num3 > 0 && cant != 0){
             num3--
+            cant--
             text3.text = num3;
+            tcant.text = "cantidad: " + cant;
            }
           }
       );
@@ -114,9 +127,11 @@ update () {
         "+",
         this,
         () => {
-          if (num3 < 3){
+          if (num3 < 3 && cant < 3){
             num3++
+            cant++
             text3.text = num3;
+            tcant.text = "cantidad: " + cant;
            }
           }    
       );
@@ -126,9 +141,11 @@ update () {
         "+",
         this,
         () => {
-          if (num2 < 3){
+          if (num2 < 3 && cant < 3){
             num2++
+            cant++
             text2.text = num2;
+            tcant.text = "cantidad: " + cant;
            }
           }
       );
@@ -137,9 +154,11 @@ update () {
         "-",
         this,
         () => {
-          if (num2 > 0){
+          if (num2 > 0 && cant != 0){
             num2--
+            cant--
             text2.text = num2;
+            tcant.text = "cantidad: " + cant;
            }
           }
       );
@@ -149,9 +168,11 @@ update () {
         "+",
         this,
         () => {
-        if (num1 < 3){
+        if (num1 < 3 && cant < 3){
           num1++
+          cant++
           text1.text = num1;
+          tcant.text = "cantidad: " + cant;
          }
         }
       );
@@ -160,9 +181,11 @@ update () {
         "-",
         this,
         () => {
-        if (num1 > 0){
+        if (num1 > 0 && cant != 0){
           num1--
+          cant--
           text1.text = num1;
+          tcant.text = "cantidad: " + cant;
          }
         }
       );

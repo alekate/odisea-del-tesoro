@@ -2,8 +2,8 @@ class Mago {
 
     constructor (){
         this.ataque = 3;
-        this.vida = 2;
-        this.vidaMax = 2;
+        this.vida = 5;
+        this.vidaMax = 5;
         this.nombre = "mago";
     }
 }
