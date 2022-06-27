@@ -3,9 +3,7 @@ import Esqueletos from "../js/esqueletos.js";
 import Mago from "../js/mago.js";
 import Polilla from "../js/polilla.js"
 
-var num1 = 0;
-var num2 = 0;
-var num3 = 0;
+
 var sala;
 var criaturas;
 var hum1;
@@ -17,13 +15,12 @@ var text3;
 var criat1;
 var criat2;
 var criat3;
-var criats = []
 var imag1;
 var imag2;
 var imag3;
 var tcant;
 var tmax;
-var cant = 0;
+
 
 export class selectorC extends Phaser.Scene {
     constructor() {
@@ -46,6 +43,12 @@ create() {
 
 
 ////////////////////////////////////////////// indicadores de cantidad
+
+var num1 = 0;
+var num2 = 0;
+var num3 = 0;
+var cant = 0;
+
   text1 = this.add.text(500, 290, "0", {
     fontSize: "32px",
     fill: "#FFFFFF",
@@ -103,10 +106,6 @@ var text9 = this.add.text(1250, 740, "daño: 3", {
   imag2.setScale(4);
   imag3.setScale(4);
 
-
-}
-
-update () {
 
 ////////////////////////////////////////////////// botones
       const boton5 = new Button(
@@ -192,6 +191,8 @@ update () {
 
       
 /////////////////////////////////////////////// matriz de personajes
+var criats = []
+
       const botonCont = new Button(
         900,900,
         "Continuar",
@@ -215,16 +216,16 @@ update () {
 
           sala++
           criaturas -= 3;
-          if (sala == 4) {
-            this.scene.start("combate", { criat1: criats[3], criat2: criats[4], criat3: criats[5],
-              sala: sala, criaturas: criaturas, hum1: hum1, hum2: hum2, hum3: hum3 });
-          } else {
+          //if (sala == 4) {
+            //this.scene.start("combate", { criat1: criats[3], criat2: criats[4], criat3: criats[5],
+              //sala: sala, criaturas: criaturas, hum1: hum1, hum2: hum2, hum3: hum3 });
+          //} else {
           this.scene.start("combate", { criat1: criats[0], criat2: criats[1], criat3: criats[2],
              sala: sala, criaturas: criaturas, hum1: hum1, hum2: hum2, hum3: hum3 });
-         }  
+         //}  
     })
-          
 }
+
     
 
           
