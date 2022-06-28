@@ -9,7 +9,7 @@ export class preloads extends Phaser.Scene {
     this.load.image("caballero", "public/assets/images/caballeroIdle.png");
     this.load.image("piromano","public/assets/images/piromanoIdle.png");
     this.load.image("mago","public/assets/images/mago.png");
-    this.load.image("esqueletos","public/assets/images/esqueleto.png");
+    this.load.image("esqueletos","public/assets/images/esqueletos.png");
     this.load.image("polilla","public/assets/images/polilla.png");
     this.load.image("logo","public/assets/images/logo.png");
     this.load.image("jefe", "public/assets/images/jefe.png");
@@ -28,6 +28,9 @@ export class preloads extends Phaser.Scene {
     this.load.image("volver", "public/assets/images/volver.png");
     this.load.image("continuar", "public/assets/images/continuar.png");
     this.load.image("atacar", "public/assets/images/atacar.png");
+    this.load.image("winGuardian", "public/assets/images/winguardian.png")
+    this.load.image("winHumanos", "public/assets/images/winhumanos.png")
+    this.load.image("selector", "public/assets/images/selector.png")
   }
 
   create() {

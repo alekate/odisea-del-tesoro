@@ -43,11 +43,6 @@ init(data) {
 create() {
 
 ////////////////////////////////////////////// carteles de salud
-  const text = this.add.text(0, 0, "Sala de Combate", {
-    fontSize: "32px",
-    fill: "#FFFFFF",
-  });
-
   vidaH1 = this.add.text(160, 650,hum1.vida + "/" + hum1.vidaMax, {
     fontSize: "32px",
     fill: "#FFFFFF",

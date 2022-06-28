@@ -19,7 +19,7 @@ export class descanso extends Phaser.Scene {
       criaturas = data.criaturas;
   }
   
-    create() {
+create() {
 
         const text = this.add.text(0, 0, "Sala de descanso", {
             fontSize: "32px",

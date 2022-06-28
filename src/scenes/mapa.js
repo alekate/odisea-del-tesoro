@@ -159,7 +159,7 @@ switch (sala) {
         pausa.setScale(3);
 
       
-        var continuar = this.add.image(1700,1000,'continuar').setInteractive()
+        var continuar = this.add.image(1680,950,'continuar').setInteractive()
         .on('pointerdown',()=> {  switch (sala) {
                     
           case 1:{
@@ -185,9 +185,9 @@ switch (sala) {
 
        }
    })
-        .on('pointerover',()=> {continuar.setScale(4.1)})
-        .on('pointerout', ()=> {continuar.setScale(4)});
-        continuar.setScale(4);
+        .on('pointerover',()=> {continuar.setScale(5.1)})
+        .on('pointerout', ()=> {continuar.setScale(5)});
+        continuar.setScale(5);
   }
 
 }

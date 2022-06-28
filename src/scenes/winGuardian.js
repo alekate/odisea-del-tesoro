@@ -5,13 +5,9 @@ export class winGuardian extends Phaser.Scene {
 
 create() {
 
-      const text = this.add.text(0, 0, "Victoria (Guardian)", {
-          fontSize: "32px",
-          fill: "#FFFFFF",
-      })
+this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'winGuardian');
 
-var Salir = this.add.image(this.cameras.main.centerX,
-  this.cameras.main.centerY + this.cameras.main.centerY / 2,'salir').setInteractive()
+var Salir = this.add.image(1000,945,'salir').setInteractive()
 .on('pointerdown',()=> {this.scene.start("mainmenu")})
 .on('pointerover',()=> {Salir.setScale(5.1)})
 .on('pointerout',()=> {Salir.setScale(5)})

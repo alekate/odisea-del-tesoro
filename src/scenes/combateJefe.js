@@ -27,13 +27,7 @@ init(data) {
       hum3 = data.hum3;
   }
 
-create() {
-    
-  const text = this.add.text(0, 0, "Combate de Jefe!", {
-    fontSize: "32px",
-    fill: "#FFFFFF",
-  })
-    
+create() {    
 ////////////////////////////////////////////////////// jefe
 jefe = new Jefe;
 jefeImg = this.add.image(1450, 400, 'jefe').setInteractive();
