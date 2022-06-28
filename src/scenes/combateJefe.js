@@ -1,4 +1,3 @@
-import Button from "../js/button.js";
 import Jefe from "../js/jefe.js";
 
 var hum1;

@@ -1,26 +1,22 @@
-import Button from "../js/button.js";
+
 
 export class winHumanos extends Phaser.Scene {
     constructor() {
       super("winHumanos");
     }
 
-    create() {
+create() {
 
       const text = this.add.text(0, 0, "Victoria (Humana)", {
           fontSize: "32px",
           fill: "#FFFFFF",
       })
 
-        const boton1 = new Button(
-          this.cameras.main.centerX,
-          this.cameras.main.centerY + this.cameras.main.centerY / 2,
-          "Salir",
-          this,
-          () => {
-            this.scene.start("mainmenu");
-          }
-    
-        );
+      var Salir = this.add.image(this.cameras.main.centerX,
+        this.cameras.main.centerY + this.cameras.main.centerY / 2,'salir').setInteractive()
+      .on('pointerdown',()=> {this.scene.start("mainmenu")})
+      .on('pointerover',()=> {Salir.setScale(5.1)})
+      .on('pointerout',()=> {Salir.setScale(5)})
+      Salir.setScale(5);;
     }
 }
