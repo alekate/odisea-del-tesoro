@@ -36,24 +36,24 @@ create() {
   var num3 = 0;
   var cant = 0;
   
-  text1 = this.add.text(500, 290, "0", {
-    fontSize: "32px",
+  text1 = this.add.text(490, 280, "0", {
+    fontSize: "50px",
     fill: "#FFFFFF",
   })
-  text2 = this.add.text(890, 290, "0", {
-    fontSize: "32px",
+  text2 = this.add.text(890, 280, "0", {
+    fontSize: "50px",
     fill: "#FFFFFF",
   })
-  text3 = this.add.text(1290, 290, "0", {
-    fontSize: "32px",
+  text3 = this.add.text(1287, 280, "0", {
+    fontSize: "50px",
     fill: "#FFFFFF",
   })
   text9 = this.add.text(1020, 150, "max: 3", {
-    fontSize: "32px",
+    fontSize: "37px",
     fill: "#FFFFFF",
   })
   tcant = this.add.text(620, 150, "cantidad: " + cant, {
-    fontSize: "32px",
+    fontSize: "37px",
     fill: "#FFFFFF",
   })
 
@@ -95,115 +95,84 @@ var text9 = this.add.text(1250, 740, "daño: 2", {
 
 
 /////////////////////////////////////////////////////// botones
-  const boton5 = new Button(
-    1250,300,
-    "-",
-    this,
-    () => {
-      if (num3 > 0 && cant != 0){
-        num3--
-        cant--
-        text3.text = num3;
-        tcant.text = "cantidad: " + cant;
-        text
-       }
-      }
-  );
-  const boton6 = new Button(
-    1360,300,
-    "+",
-    this,
-    () => {
-      if (num3 < 3 && cant < 3){
-        num3++
-        cant++
-        text3.text = num3;
-        tcant.text = "cantidad: " + cant;
-       }
-      }    
-  );
+var menos3 = this.add.image(1235,300,'menos').setInteractive()
+        .on('pointerdown',()=> { 
+          if (num3 > 0 && cant != 0){
+          num3--
+          cant--
+          text3.text = num3;
+          tcant.text = "cantidad: " + cant;
+         }});
+        menos3.setScale(2.5);        
+var mas3 = this.add.image(1375,300,'mas').setInteractive()
+        .on('pointerdown',()=> { 
+          if (num3 < 3 && cant < 3){
+            num3++
+            cant++
+            text3.text = num3;
+            tcant.text = "cantidad: " + cant;
+           }});
+        mas3.setScale(2.7);
+
   
+var mas2 = this.add.image(975,300,'mas').setInteractive()
+        .on('pointerdown',()=> { 
+          if (num2 < 3 && cant < 3){
+            num2++
+            cant++
+            text2.text = num2;
+            tcant.text = "cantidad: " + cant;
+           }});
+        mas2.setScale(2.7);
+var menos2 = this.add.image(835,300,'menos').setInteractive()
+        .on('pointerdown',()=> { 
+          if (num2 > 0 && cant != 0){
+            num2--
+            cant--
+            text2.text = num2;
+            tcant.text = "cantidad: " + cant;
+           }});
+        menos2.setScale(2.7); 
   
-  const boton4 = new Button(
-    960,300,
-    "+",
-    this,
-    () => {
-      if (num2 < 3 && cant < 3){
-        num2++
-        cant++
-        text2.text = num2;
-        tcant.text = "cantidad: " + cant;
-       }
-      }
-  );
-  const boton3 = new Button(
-    850,300,
-    "-",
-    this,
-    () => {
-      if (num2 > 0 && cant != 0){
-        num2--
-        cant--
-        text2.text = num2;
-        tcant.text = "cantidad: " + cant;
-       }
-      }
-  );
-  
- 
-  const boton2 = new Button(
-    560,300,
-    "+",
-    this,
-    () => {
-    if (num1 < 3 && cant < 3){
-      num1++
-      cant++
-      text1.text = num1;
-      tcant.text = "cantidad: " + cant;
-     }
-    }
-  );
-  const boton1 = new Button(
-    450,300,
-    "-",
-    this,
-    () => {
-    if (num1 > 0 && cant != 0){
-      num1--
-      cant--
-      text1.text = num1;
-      tcant.text = "cantidad: " + cant;
-     }
-    }
-  );
-  
+
+var mas1 = this.add.image(575,300,'mas').setInteractive()
+        .on('pointerdown',()=> { 
+          if (num1 < 3 && cant < 3){
+            num1++
+            cant++
+            text1.text = num1;
+            tcant.text = "cantidad: " + cant;
+           }});
+        mas1.setScale(2.7);
+var menos1 = this.add.image(435,300,'menos').setInteractive()
+        .on('pointerdown',()=> { 
+          if (num1 > 0 && cant != 0){
+            num1--
+            cant--
+            text1.text = num1;
+            tcant.text = "cantidad: " + cant;
+           }});
+        menos1.setScale(2.7);       
+
 
   ///////////////////////////////////////////// matriz de personajes
-
   var hums = [];
-  const botonCont = new Button(
-    900,900,
-    "Continuar",
-    this,
-    () => {
-  for (let i = 0; i < num1; i++) {
-  
+
+  var continuar = this.add.image(900,950,'continuar').setInteractive()
+  .on('pointerdown',()=> {  for (let i = 0; i < num1; i++) {
     hums.push(new Arquero)
   }
-
   for (let i = 0; i < num2; i++) {
-  
     hums.push(new Caballero)
   }
-
   for (let i = 0; i < num3; i++) {
-  
     hums.push(new Piromano)
   }
-      this.scene.start("mapa", { hum1: hums[0], hum2: hums[1], hum3: hums[2], sala: sala, criaturas: criaturas });
+  this.scene.start("mapa", { hum1: hums[0], hum2: hums[1], hum3: hums[2], sala: sala, criaturas: criaturas });
     }
-  )
-    }
+  )  
+  .on('pointerover', ()=> {continuar.setScale(4.1)})
+  .on('pointerout', ()=> {continuar.setScale(4)});
+  continuar.setScale(4);
   }
+}

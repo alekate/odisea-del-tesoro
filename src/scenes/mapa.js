@@ -21,7 +21,7 @@ export class mapa extends Phaser.Scene {
       super("mapa");
     }
 
-    init(data) {
+init(data) {
         sala = data.sala;
         hum1 = data.hum1;
         hum2 = data.hum2;
@@ -30,30 +30,48 @@ export class mapa extends Phaser.Scene {
         console.log(data);
     }
 
-    create() {
+create() {
 
-        this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'mapa');
+//////////////////////////////////////////////// variante de mapa
+switch (sala) {
+  case 1:
+    this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'mapa1');
+    break;
 
-        const text = this.add.text(0, 0, "Mapa", {
-            fontSize: "32px",
-            fill: "#FFFFFF",
-        })
+    case 2:
+    this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'mapa2');
+    break;
 
+    case 3:
+    this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'mapa3');
+    break;
+
+    case 4:
+    this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'mapa4');
+    break;
+
+    case 5:
+    this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'mapa5');
+    break;
+
+  default:
+    break;
+}
 
 //////////////////////////////////////////////// selector de sprites
         switch (hum1.nombre) {
             case "arquero":
-              humImg1 = this.add.image(120, 250, 'arquero')
+              humImg1 = this.add.image(133, 185, 'arquero')
               humImg1.setScale(2);
               break;
           
             case "caballero":
-              humImg1 = this.add.image(120, 250, 'caballero')
+              humImg1 = this.add.image(133, 185, 'caballero')
               humImg1.setScale(2);
               break;
           
             case "piromano":
-              humImg1 = this.add.image(120, 250, 'piromano')
+              humImg1 = this.add.image(133, 185, 'piromano')
               humImg1.setScale(2);
               break;
           
@@ -63,17 +81,17 @@ export class mapa extends Phaser.Scene {
           
           switch (hum2.nombre) {
             case "arquero":
-              humImg2 = this.add.image(120, 550, 'arquero')
+              humImg2 = this.add.image(133, 544, 'arquero')
               humImg2.setScale(2);
               break;
           
             case "caballero":
-              humImg2 = this.add.image(120, 550, 'caballero')
+              humImg2 = this.add.image(133, 544, 'caballero')
               humImg2.setScale(2);
               break;
           
             case "piromano":
-              humImg2 = this.add.image(120, 550, 'piromano')
+              humImg2 = this.add.image(133, 544, 'piromano')
               humImg2.setScale(2);
               break;
           
@@ -83,17 +101,17 @@ export class mapa extends Phaser.Scene {
           
           switch (hum3.nombre) {
             case "arquero":
-              humImg3 = this.add.image(120, 850, 'arquero').setInteractive()
+              humImg3 = this.add.image(133, 900, 'arquero').setInteractive()
               humImg3.setScale(2);
               break;
           
             case "caballero":
-              humImg3 = this.add.image(120, 850, 'caballero').setInteractive()
+              humImg3 = this.add.image(133, 900, 'caballero').setInteractive()
               humImg3.setScale(2);
               break;
           
             case "piromano":
-              humImg3 = this.add.image(120, 850, 'piromano').setInteractive();
+              humImg3 = this.add.image(133, 900, 'piromano').setInteractive();
               humImg3.setScale(2);
               break;
           
@@ -103,11 +121,11 @@ export class mapa extends Phaser.Scene {
 
 
 //////////////////////////////////////////////////// estadisticas
-        atk1 = this.add.text(220, 200, "atk: " + hum1.ataque, {
+        atk1 = this.add.text(220, 150, "atk: " + hum1.ataque, {
             fontSize: "32px",
             fill: "#FFFFFF",
         })
-        vida1 = this.add.text(220, 250, "vida: " + hum1.vida + "/" + hum1.vidaMax, {
+        vida1 = this.add.text(220, 200, "vida: " + hum1.vida + "/" + hum1.vidaMax, {
             fontSize: "32px",
             fill: "#FFFFFF",
         })
@@ -121,11 +139,11 @@ export class mapa extends Phaser.Scene {
             fill: "#FFFFFF",
         })
 
-        atk3 = this.add.text(220, 800, "atk: " + hum3.ataque, {
+        atk3 = this.add.text(220, 860, "atk: " + hum3.ataque, {
             fontSize: "32px",
             fill: "#FFFFFF",
         })
-        vida3 = this.add.text(220, 850, "vida: " + hum3.vida + "/" + hum3.vidaMax, {
+        vida3 = this.add.text(220, 910, "vida: " + hum3.vida + "/" + hum3.vidaMax, {
             fontSize: "32px",
             fill: "#FFFFFF",
         })

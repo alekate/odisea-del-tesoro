@@ -12,16 +12,13 @@ export class creditos extends Phaser.Scene {
         const text = this.add.text(350, 750, "The Keepers: Altamirano Irina, Barros Joaquín y Perot Alejo", {
             fontSize: "32px",
             fill: "#FFFFFF",
+            //fontFamily: 'bold'
         })
 
-        const boton = new Button(
-            900, 900,
-            "Volver",
-            this,
-            () => {
-              this.scene.start("mainmenu");
-            }
-      
-          );
+        var volver = this.add.image(this.cameras.main.centerX,900,'volver').setInteractive()
+        .on('pointerdown',()=> { this.scene.start("mainmenu"); })
+        .on('pointerover', ()=> {volver.setScale(4.1)})
+        .on('pointerout', ()=> {volver.setScale(4)});
+        volver.setScale(4);
     }
 }
