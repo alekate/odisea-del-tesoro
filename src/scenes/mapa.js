@@ -120,35 +120,42 @@ switch (sala) {
 
 //////////////////////////////////////////////////// estadisticas
         atk1 = this.add.text(220, 150, "atk: " + hum1.ataque, {
-            fontSize: "32px",
+            fontSize: "37px",
             fill: "#FFFFFF",
+            fontFamily: "georgia"
         })
         vida1 = this.add.text(220, 200, "vida: " + hum1.vida + "/" + hum1.vidaMax, {
-            fontSize: "32px",
+            fontSize: "37px",
             fill: "#FFFFFF",
+            fontFamily: "georgia"
         })
 
         atk2 = this.add.text(220, 500, "atk: " + hum2.ataque, {
-            fontSize: "32px",
+            fontSize: "37px",
             fill: "#FFFFFF",
+            fontFamily: "georgia"
         })
         vida2 = this.add.text(220, 550, "vida: " + hum2.vida + "/" + hum2.vidaMax, {
-            fontSize: "32px",
+            fontSize: "37px",
             fill: "#FFFFFF",
+            fontFamily: "georgia"
         })
 
         atk3 = this.add.text(220, 860, "atk: " + hum3.ataque, {
-            fontSize: "32px",
-            fill: "#FFFFFF",
-        })
-        vida3 = this.add.text(220, 910, "vida: " + hum3.vida + "/" + hum3.vidaMax, {
-            fontSize: "32px",
-            fill: "#FFFFFF",
-        })
-
-        cantCriaturas = this.add.text(1530, 590, "criaturas: " + criaturas, {
             fontSize: "37px",
             fill: "#FFFFFF",
+            fontFamily: "georgia"
+        })
+        vida3 = this.add.text(220, 910, "vida: " + hum3.vida + "/" + hum3.vidaMax, {
+            fontSize: "37px",
+            fill: "#FFFFFF",
+            fontFamily: "georgia"
+        })
+
+        cantCriaturas = this.add.text(1545, 590, "criaturas: " + criaturas, {
+            fontSize: "50px",
+            fill: "#FFFFFF",
+            fontFamily: "georgia"
         })
 
 

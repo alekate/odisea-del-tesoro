@@ -15,6 +15,9 @@ var jefe;
 var jefeImg;
 var turno = 1;
 var Tturno = 1;
+var daño;
+var muerte;
+var golpe;
 
 export class combateJefe extends Phaser.Scene {
     constructor() {
@@ -28,31 +31,42 @@ init(data) {
   }
 
 create() {    
+
+  this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'fondocombate');
+
+////////////////////////////////////////////////////// sonidos
+daño = this.sound.add('daño', {loop: false});
+muerte = this.sound.add('muerte', {loop: false});
+golpe = this.sound.add('golpe', {loop: false});
+
 ////////////////////////////////////////////////////// jefe
 jefe = new Jefe;
-jefeImg = this.add.image(1450, 400, 'jefe').setInteractive();
+jefeImg = this.add.image(1450, 525, 'jefe').setInteractive();
 jefeImg.setScale(5);
 
 
 ////////////////////////////////////////////////////// indicadores de vida
-vidaH1 = this.add.text(160, 650,hum1.vida + "/" + hum1.vidaMax, {
-  fontSize: "32px",
+vidaH1 = this.add.text(160,753,hum1.vida + "/" + hum1.vidaMax, {
+  fontSize: "50px",
+  fill: "#FFFFFF",
+  fontFamily: "georgia"
+})
+vidaH2 = this.add.text(420, 753, hum2.vida + "/" + hum2.vidaMax, {
+fontSize: "50px",
+fill: "#FFFFFF",
+fontFamily: "georgia"
+})
+vidaH3 = this.add.text(700, 753, hum3.vida + "/" + hum3.vidaMax, {
+fontSize: "50px",
+fill: "#FFFFFF",
+fontFamily: "georgia"
+})
+vidaJefe = this.add.text(1430, 753, jefe.vida + "/" + jefe.vidaMax, {
+  fontSize: "50px",
   fill: "#FFFFFF",
 })
-vidaH2 = this.add.text(420, 650, hum2.vida + "/" + hum2.vidaMax, {
-  fontSize: "32px",
-  fill: "#FFFFFF",
-})
-vidaH3 = this.add.text(700, 650, hum3.vida + "/" + hum3.vidaMax, {
-  fontSize: "32px",
-  fill: "#FFFFFF",
-})
-vidaJefe = this.add.text(1430, 650, jefe.vida + "/" + jefe.vidaMax, {
-  fontSize: "32px",
-  fill: "#FFFFFF",
-})
-Tturno = this.add.text(850, 150, "turno: " + turno, {
-  fontSize: "32px",
+Tturno = this.add.text(850, 100, "turno: " + turno, {
+  fontSize: "60px",
   fill: "#FFFFFF",
 })
 
@@ -60,17 +74,17 @@ Tturno = this.add.text(850, 150, "turno: " + turno, {
 ////////////////////////////////////////////// selector de sprites humanos
 switch (hum1.nombre) {
   case "arquero":
-    humImg1 = this.add.image(200, 400, 'arquero').setInteractive();
+    humImg1 = this.add.image(200, 535, 'arquero').setInteractive();
     humImg1.setScale(4);
     break;
 
   case "caballero":
-    humImg1 = this.add.image(200, 400, 'caballero').setInteractive();
+    humImg1 = this.add.image(200, 535, 'caballero').setInteractive();
     humImg1.setScale(4);
     break;
 
   case "piromano":
-    humImg1 = this.add.image(200, 400, 'piromano').setInteractive()
+    humImg1 = this.add.image(200, 535, 'piromano').setInteractive()
     humImg1.setScale(4);
     break;
 
@@ -80,17 +94,17 @@ switch (hum1.nombre) {
 
 switch (hum2.nombre) {
   case "arquero":
-    humImg2 = this.add.image(450, 400, 'arquero').setInteractive();
+    humImg2 = this.add.image(450, 535, 'arquero').setInteractive();
     humImg2.setScale(4);
     break;
 
   case "caballero":
-    humImg2 = this.add.image(450, 400, 'caballero').setInteractive();
+    humImg2 = this.add.image(450, 535, 'caballero').setInteractive();
     humImg2.setScale(4);
     break;
 
   case "piromano":
-    humImg2 = this.add.image(450, 400, 'piromano').setInteractive();
+    humImg2 = this.add.image(450, 535, 'piromano').setInteractive();
     humImg2.setScale(4);
     break;
 
@@ -100,17 +114,17 @@ switch (hum2.nombre) {
 
 switch (hum3.nombre) {
   case "arquero":
-    humImg3 = this.add.image(700, 400, 'arquero').setInteractive()
+    humImg3 = this.add.image(700, 535, 'arquero').setInteractive()
     humImg3.setScale(4);
     break;
 
   case "caballero":
-    humImg3 = this.add.image(700, 400, 'caballero').setInteractive()
+    humImg3 = this.add.image(700, 535, 'caballero').setInteractive()
     humImg3.setScale(4);
     break;
 
   case "piromano":
-    humImg3 = this.add.image(700, 400, 'piromano').setInteractive();
+    humImg3 = this.add.image(700, 535, 'piromano').setInteractive();
     humImg3.setScale(4);
     break;
 
@@ -119,7 +133,7 @@ switch (hum3.nombre) {
 }
 
 
-var atacar = this.add.image(900,900,'atacar').setInteractive()
+var atacar = this.add.image(900,950,'atacar').setInteractive()
 .on('pointerdown',()=> {ataque = "si" })
 .on('pointerover',()=> {atacar.setScale(5.1)})
 .on('pointerout',()=> {atacar.setScale(5)})
@@ -197,10 +211,16 @@ if (hum3.vida <= 0) {
 humImg1.on('pointerdown',()=> {
   if (ataque == "si" && turno == 4) {
         hum1.vida -= jefe.ataque;
+        if (hum1.vida <= 0) {
+          muerte.play();
+          turno= 1;
+        } else {
+        golpe.play();
         vidaH1.text = hum1.vida + "/" + hum1.vidaMax;
         ataque = "no";
         turno= 1;
         Tturno.text = "turno: " +turno;
+        }
   }})
 humImg1.on('pointerover',()=> {
   if (turno == 4) {
@@ -214,10 +234,16 @@ humImg1.on('pointerout', ()=> {
 humImg2.on('pointerdown',()=> {
   if (ataque == "si" && turno == 4) {
     hum2.vida -= jefe.ataque;
+    if (hum2.vida <= 0) {
+      muerte.play();
+      turno= 1;
+    } else {
+    golpe.play();
     vidaH2.text = hum2.vida + "/" + hum2.vidaMax;
     ataque = "no";
     turno= 1;
     Tturno.text = "turno: " +turno;
+    }
 }})
 humImg2.on('pointerover',()=> {
   if (turno == 4) {
@@ -231,10 +257,16 @@ humImg2.on('pointerout', ()=> {
 humImg3.on('pointerdown',()=> {
   if (ataque == "si" && turno == 4) {
     hum3.vida -= jefe.ataque;
+    if (hum3.vida <= 0) {
+      muerte.play();
+      turno= 1;
+    } else {
+    golpe.play();
     vidaH3.text = hum3.vida + "/" + hum3.vidaMax;
     ataque = "no";
     turno= 1;
     Tturno.text = "turno: " +turno;
+    }
 }})
 humImg3.on('pointerover',()=> {
   if (turno == 4) {
@@ -253,6 +285,7 @@ jefeImg.on('pointerdown',()=> {
         case 1:
         jefe.vida -= hum1.ataque;
         turno++;
+        daño.play();
         Tturno.text = "turno: " +turno;
         vidaJefe.text = jefe.vida + "/" + jefe.vidaMax;
         ataque = "no";
@@ -261,6 +294,7 @@ jefeImg.on('pointerdown',()=> {
         case 2:
         jefe.vida -= hum2.ataque;
         turno++;
+        daño.play();
         Tturno.text = "turno: " +turno;
         vidaJefe.text = jefe.vida + "/" + jefe.vidaMax;
         ataque = "no";
@@ -269,6 +303,7 @@ jefeImg.on('pointerdown',()=> {
         case 3:
         jefe.vida -= hum3.ataque;
         turno++;
+        daño.play();
         Tturno.text = "turno: " +turno;
         vidaJefe.text = jefe.vida + "/" + jefe.vidaMax;
         ataque = "no";

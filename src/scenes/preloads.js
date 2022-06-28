@@ -5,7 +5,7 @@ export class preloads extends Phaser.Scene {
 
   preload() {
     this.load.image("fondomenu", "public/assets/images/mainmenu.png");
-    this.load.image("arquero", "public/assets/images/arqueroIdle.png");
+    this.load.image("arquero", "public/assets/images/arqueroIdle.png") //, { frameWidth: 64, frameHeight: 64 });
     this.load.image("caballero", "public/assets/images/caballeroIdle.png");
     this.load.image("piromano","public/assets/images/piromanoIdle.png");
     this.load.image("mago","public/assets/images/mago.png");
@@ -31,7 +31,14 @@ export class preloads extends Phaser.Scene {
     this.load.image("winGuardian", "public/assets/images/winguardian.png")
     this.load.image("winHumanos", "public/assets/images/winhumanos.png")
     this.load.image("selector", "public/assets/images/selector.png")
-    this.load.image("boton", "public/assets/images/button1.png")
+    this.load.image("fondocombate", "public/assets/images/combatefondo.png")
+    this.load.image("masAtaque", "public/assets/images/buffo2.png")
+    this.load.image("vidaMax", "public/assets/images/buffo1.png")
+    this.load.image("curarVida", "public/assets/images/buffo3.png")
+    this.load.audio("musica", "public/assets/sounds/theSoundOfTheDungeon.wav")
+    this.load.audio("daño", "public/assets/sounds/danio.wav")
+    this.load.audio("golpe", "public/assets/sounds/golpejefe.wav")
+    this.load.audio("muerte", "public/assets/sounds/muerte.wav")
   }
 
   create() {

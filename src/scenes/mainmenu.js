@@ -8,6 +8,8 @@ export class mainmenu extends Phaser.Scene {
 
     this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'fondomenu');
 
+    let audio = this.sound.add('musica', {loop: true});
+    audio.play();
 
      var jugar = this.add.image(this.cameras.main.centerX,700,'jugar').setInteractive()
     .on('pointerdown',()=> { this.scene.start("selectorH"); })

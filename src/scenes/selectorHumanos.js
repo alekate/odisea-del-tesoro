@@ -13,6 +13,7 @@ var tcant;
 var hum1;
 var hum2;
 var hum3;
+var imag1
 
 
 
@@ -107,8 +108,16 @@ var text10 = this.add.text(1435, 725, "ventaja vs: mago", {
 })
 
 
-  ///////////////////////////////////////////////////// sprites
-  var imag1 = this.add.image(300, 515, 'arquero');
+//////////////////////////////////////////////////// animaciones
+//this.anims.create({
+  //key: 'arqueroIDLE',
+  //frames: [ { key: 'arquero', frame: 0 } ],
+  //frameRate: 20
+//});
+
+
+///////////////////////////////////////////////////// sprites
+  imag1 = this.add.image(350, 515, 'arquero');
   var imag2 = this.add.image(960, 515, 'caballero');
   var imag3 = this.add.image(1550, 515, 'piromano');
   imag1.setScale(4);
@@ -211,4 +220,8 @@ var menos1 = this.add.image(200,251,'menos').setInteractive()
   .on('pointerout', ()=> {continuar.setScale(5)});
   continuar.setScale(5);
   }
+
+update(){
+//imag1.anims.play('arqueroIDLE');
+}
 }
