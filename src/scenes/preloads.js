@@ -31,6 +31,7 @@ export class preloads extends Phaser.Scene {
     this.load.image("winGuardian", "public/assets/images/winguardian.png")
     this.load.image("winHumanos", "public/assets/images/winhumanos.png")
     this.load.image("selector", "public/assets/images/selector.png")
+    this.load.image("boton", "public/assets/images/button1.png")
   }
 
   create() {
