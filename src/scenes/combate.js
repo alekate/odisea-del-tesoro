@@ -94,21 +94,6 @@ Tturno = this.add.text(850, 100, "turno: " + turno, {
   fontFamily: "georgia"
 })
 
-/////////////////////////////////////////////// animaciones
-//this.anims.create({
-  //key: 'arqueroATK',
-  //frames: this.anims.generateFrameNumbers('arquero', { start: 0, end: 4 }),
-  //frameRate: 10,
-  //repeat: -1
-//});
-//this.anims.create({
-  //key: 'arqueroIDLE',
-  //frames: [ { key: 'arquero', frame: 0 } ],
-  //frameRate: 20
-//});
-
-
-
 ////////////////////////////////////////////// selector de sprites humanos
 switch (hum1.nombre) {
   case "arquero":
@@ -243,11 +228,14 @@ update(){
 
 ///////////////////////////////////////////////// win condition
   if (hum1.vida <= 0 && hum3.vida <= 0 && hum2.vida <= 0) {
-    this.scene.start("winGuardian")
+    setTimeout(()=>{ this.scene.start("winGuardian")},1000)
   }
   if (criat1.vida <= 0 && criat2.vida <= 0 && criat3.vida <= 0) {
-    turno = 1;
-    this.scene.start("mapa", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas })
+    setTimeout(()=>{ 
+      turno = 1;
+      this.scene.start("mapa", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas })}
+      ,1000)
+   
   }
 
 
@@ -285,8 +273,7 @@ switch (turno) {
       turno++;
       Tturno.text = "turno: " +turno;
     } else {
-      humImg1.setScale(4.5);
-      //humImg1.anims.play('arqueroATK', true);  
+      humImg1.setScale(4.5); 
     }
         
     break;
@@ -298,7 +285,6 @@ switch (turno) {
     } else {
       humImg2.setScale(4.5);
       humImg1.setScale(4);
-      //humImg1.anims.play('arqueroIDLE');
     }
     
     break;

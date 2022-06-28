@@ -5,7 +5,7 @@ export class preloads extends Phaser.Scene {
 
   preload() {
     this.load.image("fondomenu", "public/assets/images/mainmenu.png");
-    this.load.image("arquero", "public/assets/images/arqueroIdle.png") //, { frameWidth: 64, frameHeight: 64 });
+    this.load.image("arquero", "public/assets/images/arqueroIdle.png");
     this.load.image("caballero", "public/assets/images/caballeroIdle.png");
     this.load.image("piromano","public/assets/images/piromanoIdle.png");
     this.load.image("mago","public/assets/images/mago.png");

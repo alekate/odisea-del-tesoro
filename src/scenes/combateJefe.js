@@ -148,7 +148,7 @@ if (hum1.vida <= 0 && hum3.vida <= 0 && hum2.vida <= 0) {
   this.scene.start("winGuardian")
 }
 if (jefe.vida <= 0) {
-  this.scene.start("winHumanos")
+  setTimeout(()=>{this.scene.start("winHumanos")},1000)
 }
 
 ///////////////////////////////////////////////// indicador de turno
