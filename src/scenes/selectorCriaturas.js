@@ -1,4 +1,3 @@
-import Button from "../js/button.js";
 import Esqueletos from "../js/esqueletos.js";
 import Mago from "../js/mago.js";
 import Polilla from "../js/polilla.js"
@@ -48,24 +47,24 @@ var num2 = 0;
 var num3 = 0;
 var cant = 0;
 
-  text1 = this.add.text(500, 290, "0", {
-    fontSize: "32px",
-    fill: "#FFFFFF",
-  })
-  text2 = this.add.text(890, 290, "0", {
-    fontSize: "32px",
-    fill: "#FFFFFF",
-  })
-  text3 = this.add.text(1290, 290, "0", {
-    fontSize: "32px",
-    fill: "#FFFFFF",
-  })
+text1 = this.add.text(490, 280, "0", {
+  fontSize: "50px",
+  fill: "#FFFFFF",
+})
+text2 = this.add.text(890, 280, "0", {
+  fontSize: "50px",
+  fill: "#FFFFFF",
+})
+text3 = this.add.text(1287, 280, "0", {
+  fontSize: "50px",
+  fill: "#FFFFFF",
+})
   tmax = this.add.text(1020, 150, "max: 3", {
-    fontSize: "32px",
+    fontSize: "37px",
     fill: "#FFFFFF",
   })
   tcant = this.add.text(620, 150, "cantidad: " + cant, {
-    fontSize: "32px",
+    fontSize: "37px",
     fill: "#FFFFFF",
   })
 
@@ -107,122 +106,94 @@ var text9 = this.add.text(1250, 740, "daño: 3", {
 
 
 ////////////////////////////////////////////////// botones
-      const boton5 = new Button(
-        1250,300,
-        "-",
-        this,
-        () => {
-          if (num3 > 0 && cant != 0){
-            num3--
-            cant--
-            text3.text = num3;
-            tcant.text = "cantidad: " + cant;
-           }
-          }
-      );
-      const boton6 = new Button(
-        1360,300,
-        "+",
-        this,
-        () => {
-          if (num3 < 3 && cant < 3){
-            num3++
-            cant++
-            text3.text = num3;
-            tcant.text = "cantidad: " + cant;
-           }
-          }    
-      );
-      
-      const boton4 = new Button(
-        960,300,
-        "+",
-        this,
-        () => {
-          if (num2 < 3 && cant < 3){
-            num2++
-            cant++
-            text2.text = num2;
-            tcant.text = "cantidad: " + cant;
-           }
-          }
-      );
-      const boton3 = new Button(
-        850,300,
-        "-",
-        this,
-        () => {
-          if (num2 > 0 && cant != 0){
-            num2--
-            cant--
-            text2.text = num2;
-            tcant.text = "cantidad: " + cant;
-           }
-          }
-      );
-      
-      const boton2 = new Button(
-        560,300,
-        "+",
-        this,
-        () => {
-        if (num1 < 3 && cant < 3){
-          num1++
-          cant++
-          text1.text = num1;
-          tcant.text = "cantidad: " + cant;
-         }
-        }
-      );
-      const boton1 = new Button(
-        450,300,
-        "-",
-        this,
-        () => {
-        if (num1 > 0 && cant != 0){
-          num1--
-          cant--
-          text1.text = num1;
-          tcant.text = "cantidad: " + cant;
-         }
-        }
-      );
+var menos3 = this.add.image(1235,300,'menos').setInteractive()
+.on('pointerdown',()=> { 
+  if (num3 > 0 && cant != 0){
+  num3--
+  cant--
+  text3.text = num3;
+  tcant.text = "cantidad: " + cant;
+ }});
+menos3.setScale(2.5);        
+var mas3 = this.add.image(1375,300,'mas').setInteractive()
+.on('pointerdown',()=> { 
+  if (num3 < 3 && cant < 3){
+    num3++
+    cant++
+    text3.text = num3;
+    tcant.text = "cantidad: " + cant;
+   }});
+mas3.setScale(2.7);
+
+
+var mas2 = this.add.image(975,300,'mas').setInteractive()
+.on('pointerdown',()=> { 
+  if (num2 < 3 && cant < 3){
+    num2++
+    cant++
+    text2.text = num2;
+    tcant.text = "cantidad: " + cant;
+   }});
+mas2.setScale(2.7);
+var menos2 = this.add.image(835,300,'menos').setInteractive()
+.on('pointerdown',()=> { 
+  if (num2 > 0 && cant != 0){
+    num2--
+    cant--
+    text2.text = num2;
+    tcant.text = "cantidad: " + cant;
+   }});
+menos2.setScale(2.7); 
+
+
+var mas1 = this.add.image(575,300,'mas').setInteractive()
+.on('pointerdown',()=> { 
+  if (num1 < 3 && cant < 3){
+    num1++
+    cant++
+    text1.text = num1;
+    tcant.text = "cantidad: " + cant;
+   }});
+mas1.setScale(2.7);
+var menos1 = this.add.image(435,300,'menos').setInteractive()
+.on('pointerdown',()=> { 
+  if (num1 > 0 && cant != 0){
+    num1--
+    cant--
+    text1.text = num1;
+    tcant.text = "cantidad: " + cant;
+   }});
+menos1.setScale(2.7);       
 
       
 /////////////////////////////////////////////// matriz de personajes
 var criats = []
 
-      const botonCont = new Button(
-        900,900,
-        "Continuar",
-        this,
-        () => {
-
-          for (let i = 0; i < num1; i++) {
+var continuar = this.add.image(900,900,'continuar').setInteractive()
+  .on('pointerdown',()=> {for (let i = 0; i < num1; i++) {
   
-            criats.push(new Esqueletos)
-          }
-        
-          for (let i = 0; i < num2; i++) {
-          
-            criats.push(new Polilla)
-          }
+    criats.push(new Esqueletos)
+  }
 
-          for (let i = 0; i < num3; i++) {
-          
-            criats.push(new Mago)
-          }
+  for (let i = 0; i < num2; i++) {
+  
+    criats.push(new Polilla)
+  }
 
-          sala++
-          criaturas -= 3;
-          //if (sala == 4) {
-            //this.scene.start("combate", { criat1: criats[3], criat2: criats[4], criat3: criats[5],
-              //sala: sala, criaturas: criaturas, hum1: hum1, hum2: hum2, hum3: hum3 });
-          //} else {
-          this.scene.start("combate", { criat1: criats[0], criat2: criats[1], criat3: criats[2],
-             sala: sala, criaturas: criaturas, hum1: hum1, hum2: hum2, hum3: hum3 });
-         //}  
-    })
+  for (let i = 0; i < num3; i++) {
+  
+    criats.push(new Mago)
+  }
+
+  sala++
+  criaturas -= 3;
+  this.scene.start("combate", { criat1: criats[0], criat2: criats[1], criat3: criats[2],
+  sala: sala, criaturas: criaturas, hum1: hum1, hum2: hum2, hum3: hum3 })})
+      
+  .on('pointerover', ()=> {continuar.setScale(4.1)})
+  .on('pointerout', ()=> {continuar.setScale(4)});
+  continuar.setScale(4);
+
 }
 
     

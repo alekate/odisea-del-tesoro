@@ -1,4 +1,3 @@
-import Button from "../js/button.js";
 
 var sala;
 var hum1;
@@ -206,13 +205,11 @@ switch (criat3.nombre) {
         break;
 }
 
-  const atacar = new Button(
-    900,1000,
-    "atacar",
-    this,
-    () => {
-     ataque = "si"
-    });
+var atacar = this.add.image(900,900,'atacar').setInteractive()
+.on('pointerdown',()=> {ataque = "si" })
+.on('pointerover',()=> {atacar.setScale(5.1)})
+.on('pointerout',()=> {atacar.setScale(5)})
+atacar.setScale(5)
 }
 
 

@@ -1,5 +1,3 @@
-import Button from "../js/button.js";
-
 export class creditos extends Phaser.Scene {
     constructor() {
       super("creditos");

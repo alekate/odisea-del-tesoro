@@ -1,4 +1,3 @@
-import Button from "../js/button.js";
 import Arquero from "../js/arquero.js";
 import Caballero from "../js/caballero.js";
 import Piromano from "../js/piromano.js";

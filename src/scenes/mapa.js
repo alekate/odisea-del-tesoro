@@ -1,5 +1,3 @@
-import Button from "../js/button.js";
-
 var sala;
 var hum1;
 var hum2;
@@ -148,50 +146,48 @@ switch (sala) {
             fill: "#FFFFFF",
         })
 
-        cantCriaturas = this.add.text(1550, 550, "criaturas: " + criaturas, {
-            fontSize: "32px",
+        cantCriaturas = this.add.text(1530, 590, "criaturas: " + criaturas, {
+            fontSize: "37px",
             fill: "#FFFFFF",
         })
 
-        const boton = new Button(
-            1800,50,
-            "Pausa",
-            this,
-            () => {
-              this.scene.start("pausa");
-            });
 
-            
-        const boton1 = new Button(
-            1700,1000,
-            "Siguiente sala",
-            this,
-            () => {
-                switch (sala) {
+        var pausa = this.add.image(1800,50,'pausa').setInteractive()
+        .on('pointerdown',()=> {this.scene.start("pausa");})
+        .on('pointerover',()=> {pausa.setScale(3.1)})
+        .on('pointerout', ()=> {pausa.setScale(3)});
+        pausa.setScale(3);
+
+      
+        var continuar = this.add.image(1700,1000,'continuar').setInteractive()
+        .on('pointerdown',()=> {  switch (sala) {
                     
-                   case 1:{
-                    this.scene.start("selectorC", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
-                    break;
-                   }
-                   case 2:{
-                    this.scene.start("descanso", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
-                    break;
-                   }
-                   case 3:{
-                    this.scene.start("selectorC", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
-                    break;
-                   }
-                   case 4:{
-                    this.scene.start("descanso", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
-                    break;
-                   }
-                   case 5:{
-                    this.scene.start("combateJefe", { hum1: hum1, hum2: hum2, hum3: hum3});
-                    break;
-                   }
+          case 1:{
+           this.scene.start("selectorC", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
+           break;
+          }
+          case 2:{
+           this.scene.start("descanso", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
+           break;
+          }
+          case 3:{
+           this.scene.start("selectorC", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
+           break;
+          }
+          case 4:{
+           this.scene.start("descanso", { hum1: hum1, hum2: hum2, hum3: hum3, sala: sala, criaturas: criaturas });
+           break;
+          }
+          case 5:{
+           this.scene.start("combateJefe", { hum1: hum1, hum2: hum2, hum3: hum3});
+           break;
+          }
 
-                }
-            });
-    }
+       }
+   })
+        .on('pointerover',()=> {continuar.setScale(4.1)})
+        .on('pointerout', ()=> {continuar.setScale(4)});
+        continuar.setScale(4);
+  }
 
 }
